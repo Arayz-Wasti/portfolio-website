@@ -86,12 +86,17 @@ class Command(BaseCommand):
             }
         ]
         for i, p in enumerate(projects):
+            # Use specific video for VIN project if it exists
+            video_file = 'videos/video.mp4'
+            if p['title'] == 'VIN Report Management System':
+                video_file = 'videos/vin_dashboard.mp4'
+            
             Project.objects.create(
                 title=p['title'],
                 description=p['desc'],
                 tech_stack=p['tech'],
                 bullet_points=p['bullets'],
-                video_file='videos/video.mp4',
+                video_file=video_file,
                 order=i
             )
 

@@ -131,7 +131,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'arayzwasti111@gmail.com'
 # NOTE: User must provide an App Password for Gmail
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'your-app-password-here')
+EMAIL_HOST_PASSWORD = 'qbia lrmz cxom otmn'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
