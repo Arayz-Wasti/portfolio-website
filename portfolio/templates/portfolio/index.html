@@ -22,7 +22,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}?v=1.1">
 </head>
 
 <body class="dark-theme">
@@ -63,13 +63,8 @@
             <div class="hero-visual" data-aos="fade-left">
                 <div class="glass-card profile-card">
                     <div class="profile-frame">
-                        {% if profile.profile_image %}
-                        <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}">
-                        {% else %}
-                        <div class="profile-placeholder">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        {% endif %}
+                        <img src="{{ MEDIA_URL }}images/WhatsApp Image 2026-03-02 at 11.46.43.jpeg"
+                            alt="{{ profile.name }}">
                     </div>
                     <div class="profile-stats">
                         <div class="stat">
@@ -144,24 +139,28 @@
         </div>
     </section>
 
-    <!-- Video Showcase Section -->
+    <!-- ================= VIDEO SHOWCASE ================= -->
     <section id="showcase" class="showcase">
         <div class="container">
+
             <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Project Demonstrations</h2>
                 <p class="section-subtitle">See my backend systems in action</p>
                 <div class="underline"></div>
             </div>
+
             <div class="video-grid">
                 {% for project in projects %}
-                {% if project.video_url %}
-                <div class="video-item glass-card" data-aos="zoom-in">
+                {% if project.video_file %}
+                <div class="video-item glass-card" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:100 }}">
                     <div class="video-container">
-                        <iframe src="{{ project.video_url }}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <video controls autoplay muted loop preload="metadata" playsinline
+                            style="width:100%; height:auto; display:block; object-fit:contain;">
+                            <source src="{{ project.video_file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-                    <h3>{{ project.title }}</h3>
+                    <h3 class="video-title">{{ project.title }} Demo</h3>
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -190,7 +189,15 @@
                     </div>
                     <h3 class="project-title">{{ project.title }}</h3>
                     <p class="project-desc">{{ project.description }}</p>
-                    <div class="project-tech">
+
+                    <ul class="project-bullets"
+                        style="margin-top: 1rem; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text-muted);">
+                        {% for point in project.bullet_points.splitlines %}
+                        <li style="margin-bottom: 0.5rem;">{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="project-tech" style="margin-top: 1.5rem;">
                         {% for tech in project.tech_stack.split %}
                         <span>{{ tech|cut:"," }}</span>
                         {% endfor %}

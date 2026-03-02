@@ -53,28 +53,36 @@ class Command(BaseCommand):
                 'desc': 'Real-time crypto data processing and market sentiment classification.',
                 'tech': 'Python, API Integration, JSON Processing',
                 'bullets': 'Real-time crypto data processing\nMarket sentiment classification\nStructured JSON output engine\nOptimized calculation accuracy',
-                'video': 'https://www.youtube.com/embed/dQw4w9WgXcQ' # Sample
             },
             {
                 'title': 'VIN Report Management System',
                 'desc': 'Django-based admin dashboard with REST API architecture for secure report management.',
                 'tech': 'Django, REST API, PostgreSQL',
                 'bullets': 'Django-based admin dashboard\nREST API architecture\nSecure payment and request workflow\nScalable backend design',
-                'video': 'https://www.youtube.com/embed/dQw4w9WgXcQ' # Sample
             },
             {
-                'title': 'Attendance Management System',
-                'desc': 'Comprehensive system with Face Recognition (OpenCV) and background processing.',
-                'tech': 'Django, Redis, Celery, OpenCV, Face Recognition',
-                'bullets': 'Face Recognition (OpenCV, face_recognition, dlib)\nJWT Authentication\nCelery & Redis for Background Tasks\nSMTP for Email Notifications\nStripe for Payment',
-                'video': 'https://www.youtube.com/embed/dQw4w9WgXcQ' # Sample
+                'title': 'Enterprise Data Automation Tool',
+                'desc': 'Scrapy-based scraping engine and automated processing pipelines for enterprise data.',
+                'tech': 'Scrapy, BeautifulSoup, PostgreSQL, Python',
+                'bullets': 'Scrapy-based scraping engine\nAutomated processing pipelines\nPostgreSQL data storage\nPerformance-optimized queries',
             },
             {
                 'title': 'E-commerce Platform',
                 'desc': 'Full-featured e-commerce solution with multi-payment gateway integration.',
                 'tech': 'Django, Stripe, PayPal, Razorpay',
-                'bullets': 'Checkout workflow, add to cart, wishlist\nOrder management\nStripe, PayPal, Razorpay integration\nCustomized Admin Dashboard',
-                'video': ''
+                'bullets': 'Customized Django-based admin dashboard\nCheckout workflow, add to cart, wishlist, order management etc\nREST API architecture\nSecure payment and request workflow(Stripe, PayPal, Razorpay)\nScalable backend design',
+            },
+            {
+                'title': 'Attendance Management System',
+                'desc': 'Comprehensive system with Face Recognition (OpenCV) and background processing.',
+                'tech': 'Django, Redis, Celery, OpenCV, Face Recognition',
+                'bullets': 'Django-based admin dashboard\nREST API architecture\nAttendance tracking and management\nScalable backend design\nimplemented the SMTP for email notifications\nStripe for fine payment\nImplemented the JWT authentication\nImplemented the Celery for background tasks\nImplemented the Redis for caching\nImplemented Face Recognition for attendance marking(OpenCV, face_recognition, dlib)',
+            },
+            {
+                'title': 'Zain Iraq Features Integration',
+                'desc': 'Integration of multiple features and third-party APIs for the Zain Iraq application.',
+                'tech': 'Python, aiohttp, Redis, RabbitMQ, PostgreSQL, Remedy API',
+                'bullets': 'Implemented the aiohttp_client_session for timeout handling\nImplemented the Redis for caching\nImplemented the submit and track complaint feature in zain iraq app.(Integrating third party remedy Api)\nImplemented the ZainFi devices feature in zain iraq app.\nImplemented the 4G booster Api integration in zain iraq app.\nImplemented the new kafoo offer feature in zain iraq app.\nImplemented the SHARING BUNDLE integration in zain iraq app.(Integrating third party rsc relation Api)\nImplemented PostgreSQL and successfully migrated all DMart custom databases to PostgreSQL. Managed a multi-database architecture using both PostgreSQL and dmart database..\nImplemented the rabbit mq worker for backend task processing.',
             }
         ]
         for i, p in enumerate(projects):
@@ -83,7 +91,7 @@ class Command(BaseCommand):
                 description=p['desc'],
                 tech_stack=p['tech'],
                 bullet_points=p['bullets'],
-                video_url=p.get('video', ''),
+                video_file='videos/video.mp4',
                 order=i
             )
 

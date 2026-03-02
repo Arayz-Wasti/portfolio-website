@@ -37,6 +37,7 @@ class Project(models.Model):
     tech_stack = models.CharField(max_length=200, help_text="Comma separated list")
     image = models.ImageField(upload_to='projects/', null=True, blank=True)
     video_url = models.URLField(null=True, blank=True, help_text="YouTube or Vimeo embed URL")
+    video_file = models.FileField(upload_to='videos/', null=True, blank=True)
     live_link = models.URLField(null=True, blank=True)
     repo_link = models.URLField(null=True, blank=True)
     order = models.IntegerField(default=0)
